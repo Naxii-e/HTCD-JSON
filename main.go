@@ -45,18 +45,12 @@ func GetHttpResponse() *C.char {
 			log.Fatal(err)
 			log.Fatal("エラーが", data.Disp, "で発生しましたが、飛ばしました。")
 		}
-		//s := ReHost{
-		//	Disp: data.Disp,
-		//	Url: data.Url,
-		//	Code: res.StatusCode,
-		//}
 		resu.Disp = data.Disp
 		resu.Url = data.Url
 		resu.Code = res.StatusCode
 		fmt.Println(data.Disp, "を取得しました:", res.StatusCode)
 	}
-	//resu_json, _ := json.Marshal(resu)
-	//log.Fatalf("[+] %s\n", string(resu_json))
+	//jsonでpyに渡そうとしたけど失敗
 	fmt.Println("---=取得を終了しました=---")
 	return nil
 }
