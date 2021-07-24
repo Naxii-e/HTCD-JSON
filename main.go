@@ -63,7 +63,7 @@ func main() {
 	 / __  / / / / /___/ /_/ /_____/ /_/ /___/ / /_/ / /|  /  
 	/_/ /_/ /_/  \____/_____/      \____//____/\____/_/ |_/   
 
-	Ver 1.0 - BETA
+	Ver 1.1 - BETA
 	Author: Naxii	
 	GitHub: https://github.com/Naxii-e
 	Keybase: https://keybase.io/naxii_e
