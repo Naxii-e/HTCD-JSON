@@ -88,6 +88,7 @@ func main() {
 	in, err := ReadCsv(*intOpt2)
 	if err != nil {
 		log.Fatalln("csv ファイルが見つかりません。")
+		time.Sleep(5 * time.Second)
 	}
 	info("csv ファイルを読み込みました。")
 	info("")
@@ -142,6 +143,7 @@ func main() {
 	err = ioutil.WriteFile("http_response_results.json", []byte(indentResult), 0644)
 	if err != nil {
 		log.Fatalln("ファイル生成に失敗しました。")
+		time.Sleep(5 * time.Second)
 	}
 	info("jsonファイルの書き出しが完了しました。")
 	info("10秒後に自動終了します...")
