@@ -43,7 +43,7 @@ func GetHttpResponse() *C.char {
 		res, err := http.DefaultClient.Do(req)
 		if err != nil {
 			log.Print("エラーが", data.Disp, "で発生しましたが、飛ばしました。")
-			log.Fatal(err)
+			log.Print(err) //Fatalにするとos.exit()されちゃうね
 		}
 		resu.Disp = data.Disp
 		resu.Url = data.Url
