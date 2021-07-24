@@ -75,6 +75,7 @@ func main() {
 
 `
 	var intOpt = flag.String("debug", "false", "output debug console")
+	var intOpt2 = flag.String("f", "hosts.csv", "file path of csv")
 	flag.Parse()
 	DebugOptionMode := false
 	if *intOpt == "true" {
@@ -84,11 +85,11 @@ func main() {
 	if DebugOptionMode == true {
 		info("！デバッグモードが有効です！")
 	}
-	in, err := ReadCsv("hosts.csv")
+	in, err := ReadCsv(*intOpt2)
 	if err != nil {
-		log.Fatalln("hosts.csv ファイルが見つかりません。")
+		log.Fatalln("csv ファイルが見つかりません。")
 	}
-	info("hosts.csv ファイルを読み込みました。")
+	info("csv ファイルを読み込みました。")
 	info("")
 	info("---=取得を開始します=---")
 	// 非同期処理へ対応・排他制御が必要
@@ -143,5 +144,6 @@ func main() {
 		log.Fatalln("ファイル生成に失敗しました。")
 	}
 	info("jsonファイルの書き出しが完了しました。")
-
+	info("10秒後に自動終了します...")
+	time.Sleep(10 * time.Second)
 }
