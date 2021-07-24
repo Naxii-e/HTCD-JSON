@@ -42,8 +42,8 @@ func GetHttpResponse() *C.char {
 		req.Header.Set("User-Agent", "Mozilla/5.0 (Maenmo; Linux armv71; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1")
 		res, err := http.DefaultClient.Do(req)
 		if err != nil {
+			log.Print("エラーが", data.Disp, "で発生しましたが、飛ばしました。")
 			log.Fatal(err)
-			log.Fatal("エラーが", data.Disp, "で発生しましたが、飛ばしました。")
 		}
 		resu.Disp = data.Disp
 		resu.Url = data.Url
@@ -61,7 +61,12 @@ func ReadCsv(filename string) ([][]string, error) {
 	if err != nil {
 		return [][]string{}, err
 	}
-	defer f.Close()
+	defer func(f *os.File) {
+		err := f.Close()
+		if err != nil {
+
+		}
+	}(f)
 	// Read File into a Variable
 	lines, err := csv.NewReader(f).ReadAll()
 	if err != nil {
@@ -70,6 +75,4 @@ func ReadCsv(filename string) ([][]string, error) {
 	return lines, nil
 }
 
-func main() {
-	GetHttpResponse()
-}
+func main() { GetHttpResponse() }
