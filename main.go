@@ -1,6 +1,6 @@
 /*c
 Copyright (c) 2021 Naxii.
-https://github.com/Naxii-e/get_http_code
+https://github.com/Naxii-e/HTCD-JSON
 */
 
 package main
